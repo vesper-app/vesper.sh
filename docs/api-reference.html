@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lua API reference - Vesper.sh</title>
+    <meta name="description" content="A complete reference for the Vesper Lua API. Learn how to script and extend Vesper to build your perfect terminal workspace.">
+    <!-- Open Graph & X (Twitter) Social Sharing Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesper.sh/">
+    <meta property="og:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="og:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/">
+    <meta property="twitter:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="twitter:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+
+    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+    <link rel="manifest" href="../images/site.webmanifest" />
+
+    <!-- Schema.org for Rich Search Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://vesper.sh/",
+          "name": "Vesper.sh"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Vesper",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Linux, macOS",
+          "description": "Vesper is a modern, standalone terminal multiplexer designed as an intuitive alternative to tmux.",
+          "url": "https://vesper.sh/",
+          "codeRepository": "https://github.com/cosminadrianpopescu/azul",
+          "license": "https://opensource.org/licenses/MIT"
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="../index.html" class="logo-link">
+            <img src="../images/logo.svg" alt="Vesper.sh Logo">
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="index.html">Docs</a>
+            <a href="../features.html">Features</a>
+            <a href="../vs-tmux.html">Comparison</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Overlay Navigation Menu -->
+    <div class="overlay-menu">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Docs</a>
+        <a href="../features.html">Features</a>
+        <a href="../vs-tmux.html">Comparison</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Lua API reference</h1>
+            <p>Vesper exposes a rich Lua API for deep customization. This document serves as the official reference for all available modules and functions.</p>
+        </header>
+
+        <section class="feature-category">
+            <h2>Getting started</h2>
+            <p>All API functions are available under the global <code>vesper</code> table. You can write your scripts in <code>~/.config/vesper/init.lua</code> to have them loaded at startup.</p>
+        </section>
+
+        <section class="feature-category" id="api-vesper">
+            <h2>Global `vesper` API</h2>
+            
+            <div id="vesper-notify">
+                <h3><code>vesper.notify(message)</code></h3>
+                <p>Displays a temporary notification message in the Vesper status bar. Useful for debugging your scripts.</p>
+                <ul>
+                    <li><strong>message</strong> (string): The text to display.</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>-- Example:
+vesper.notify("My script has loaded successfully!")</code></pre>
+                    <button class="copy-button">Copy</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="feature-category" id="api-panes">
+            <h2>`vesper.panes` API</h2>
+            
+            <div id="panes-get-active">
+                <h3><code>vesper.panes.get_active() -> pane_object</code></h3>
+                <p>Returns the currently active pane object.</p>
+                <ul>
+                    <li><strong>Returns</strong> (table): An object representing the active pane, with properties like `id`, `is_floating`, etc.</li>
+                </ul>
+            </div>
+
+            <div id="panes-create">
+                <h3><code>vesper.panes.create(options) -> pane_object</code></h3>
+                <p>Creates a new pane. By default, it splits the active pane vertically.</p>
+                <ul>
+                    <li><strong>options</strong> (table, optional): A table of options.
+                        <ul>
+                            <li><strong>direction</strong> (string): "vertical" or "horizontal".</li>
+                            <li><strong>floating</strong> (boolean): If true, creates a new floating pane.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Returns</strong> (table): An object representing the newly created pane.</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>-- Example: Create a new floating pane
+local new_pane = vesper.panes.create({ floating = true })
+vesper.notify("Created new floating pane with ID: " .. new_pane.id)</code></pre>
+                    <button class="copy-button">Copy</button>
+                </div>
+            </div>
+            
+            <div id="panes-send-keys">
+                <h3><code>vesper.panes.send_keys(pane_id, keys)</code></h3>
+                <p>Sends a sequence of keys to a specific pane as if they were typed by the user.</p>
+                <ul>
+                    <li><strong>pane_id</strong> (number): The ID of the target pane.</li>
+                    <li><strong>keys</strong> (string): The string of keys to send. Use `\n` for Enter.</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>-- Example: Run 'htop' in a new horizontal split
+local pane = vesper.panes.create({ direction = "horizontal" })
+vesper.panes.send_keys(pane.id, "htop\n")</code></pre>
+                    <button class="copy-button">Copy</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- You would continue to add more modules like vesper.tabs, vesper.keymap, etc. here -->
+
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="../community.html">Community</a></p>
+    </footer>
+    <script>
+        const menuToggle=document.querySelector(".menu-toggle"),body=document.body;menuToggle.addEventListener("click",()=>{body.classList.toggle("nav-open")}),document.querySelectorAll(".overlay-menu a").forEach(e=>{e.addEventListener("click",()=>{body.classList.remove("nav-open")})}),document.querySelectorAll(".copy-button").forEach(e=>{e.addEventListener("click",()=>{const o=e.parentElement.querySelector("pre");o&&navigator.clipboard.writeText(o.innerText).then(()=>{e.innerText="Copied!",setTimeout(()=>{e.innerText="Copy"},2e3)}).catch(o=>{console.error("Failed to copy text: ",o),e.innerText="Error"})})});
+    </script>
+    </body>
+</html>

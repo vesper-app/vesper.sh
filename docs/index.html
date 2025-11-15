@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Vesper.sh</title>
+    <meta name="description" content="Official documentation for Vesper. Find installation guides, getting-started tutorials, and detailed configuration references.">
+    <!-- Open Graph & X (Twitter) Social Sharing Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesper.sh/">
+    <meta property="og:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="og:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/">
+    <meta property="twitter:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="twitter:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+
+    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+    <link rel="manifest" href="../images/site.webmanifest" />
+
+    <!-- Schema.org for Rich Search Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://vesper.sh/",
+          "name": "Vesper.sh"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Vesper",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Linux, macOS",
+          "description": "Vesper is a modern, standalone terminal multiplexer designed as an intuitive alternative to tmux.",
+          "url": "https://vesper.sh/",
+          "codeRepository": "https://github.com/cosminadrianpopescu/azul",
+          "license": "https://opensource.org/licenses/MIT"
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="../index.html" class="logo-link">
+            <img src="../images/logo.svg" alt="Vesper.sh Logo">
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="index.html">Docs</a>
+            <a href="../features.html">Features</a>
+            <a href="../vs-tmux.html">Comparison</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Overlay Navigation Menu -->
+    <div class="overlay-menu">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Docs</a>
+        <a href="../features.html">Features</a>
+        <a href="../vs-tmux.html">Comparison</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+    </div>
+
+    <main class="container">
+        <header class="text-center">
+            <h1>Vesper Documentation</h1>
+            <p>Welcome to the official documentation hub. Whether you're a new user or a seasoned expert, you'll find everything you need here.</p>
+        </header>
+
+        <section class="community-card">
+            <h3>Getting Started</h3>
+            <p>New to Vesper? These guides are the perfect place to start. We'll walk you through installation and the core concepts you need to become productive immediately.</p>
+            <p>
+                <a href="install.html" class="cta-button">1. Installation Guide</a>
+                <a href="getting-started.html" class="cta-button cta-button--secondary">2. Your First Session Tutorial</a>            </p>
+        </section>
+
+        <section class="community-card">
+            <h3>Configuration & Guides</h3>
+            <p>Learn how to customize Vesper to fit your exact workflow, from simple keybindings to advanced scripting.</p>
+            <p><a href="configuration.html" class="cta-button">Configuration Guide</a></p>
+        </section>
+    
+        <section class="community-card text-center">
+            <h3>Reference material</h3>
+            <p>For expert users who need the hard data. Find detailed lists of all features, commands, and API functions for advanced customization.</p>
+            
+            <!-- The new, hierarchical button group -->
+            <div class="button-group">
+                <a href="cheatsheet.html" class="cta-button">Keybinding Cheatsheet</a>
+                <a href="api-reference.html" class="cta-button cta-button--secondary">Lua API Reference</a>
+            </div>
+        
+            <!-- The supplementary text link remains the same -->
+            <p style="margin-top: 1.5em; font-size: 0.9em;">
+                Or, view the <a href="features.html">complete detailed feature list</a>.
+            </p>
+        </section>
+
+              </main>
+    
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="../community.html">Community</a></p>
+    </footer>
+    <script>
+        const menuToggle=document.querySelector(".menu-toggle"),body=document.body;menuToggle.addEventListener("click",()=>{body.classList.toggle("nav-open")}),document.querySelectorAll(".overlay-menu a").forEach(e=>{e.addEventListener("click",()=>{body.classList.remove("nav-open")})}),document.querySelectorAll(".copy-button").forEach(e=>{e.addEventListener("click",()=>{const o=e.parentElement.querySelector("pre");o&&navigator.clipboard.writeText(o.innerText).then(()=>{e.innerText="Copied!",setTimeout(()=>{e.innerText="Copy"},2e3)}).catch(o=>{console.error("Failed to copy text: ",o),e.innerText="Error"})})});
+    </script>
+</body>
+</html>

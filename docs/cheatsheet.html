@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keybinding cheatsheet - Vesper.sh</title>
+    <meta name="description"
+        content="A quick reference and cheatsheet for all default Vesper keybindings for session, tab, and pane management.">
+    <!-- Open Graph & X (Twitter) Social Sharing Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesper.sh/">
+    <meta property="og:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="og:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/">
+    <meta property="twitter:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="twitter:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+
+    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+    <link rel="manifest" href="../images/site.webmanifest" />
+
+    <!-- Schema.org for Rich Search Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://vesper.sh/",
+          "name": "Vesper.sh"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Vesper",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Linux, macOS",
+          "description": "Vesper is a modern, standalone terminal multiplexer designed as an intuitive alternative to tmux.",
+          "url": "https://vesper.sh/",
+          "codeRepository": "https://github.com/cosminadrianpopescu/azul",
+          "license": "https://opensource.org/licenses/MIT"
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="../index.html" class="logo-link">
+            <img src="../images/logo.svg" alt="Vesper.sh Logo">
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="index.html">Docs</a>
+            <a href="../features.html">Features</a>
+            <a href="../vs-tmux.html">Comparison</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Overlay Navigation Menu -->
+    <div class="overlay-menu">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Docs</a>
+        <a href="../features.html">Features</a>
+        <a href="../vs-tmux.html">Comparison</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Keybinding cheatsheet</h1>
+            <p>A quick reference for all default Vesper commands. All commands start with the prefix key, which is
+                <kbd>Ctrl</kbd>+<kbd>a</kbd> by default.</p>
+        </header>
+
+        <section>
+            <h2>Session Management</h2>
+            <table class="cheatsheet-table">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Keybinding</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Detach Session</td>
+                        <td><kbd>Ctrl</kbd>+<kbd>a</kbd> then <kbd>d</kbd></td>
+                        <td>Detaches from the current session, leaving it running in the background.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Tab Management</h2>
+            <table class="cheatsheet-table">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Keybinding</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Create New Tab</td>
+                        <td><kbd>Ctrl</kbd>+<kbd>a</kbd> then <kbd>c</kbd></td>
+                        <td>Creates a new tab (workspace) within the current session.</td>
+                    </tr>
+                    <tr>
+                        <td>Go to Next Tab</td>
+                        <td><kbd>Ctrl</kbd>+<kbd>a</kbd> then <kbd>Tab</kbd></td>
+                        <td>Switches to the next tab in the list.</td>
+                    </tr>
+                    <tr>
+                        <td>Go to Previous Tab</td>
+                        <td><kbd>Ctrl</kbd>+<kbd>a</kbd> then <kbd>Shift</kbd>+<kbd>Tab</kbd></td>
+                        <td>Switches to the previous tab in the list.</td>
+                    </tr>
+                    <tr>
+                        <td>Close Current Tab</td>
+                        <td><kbd>Ctrl</kbd>+<kbd>a</kbd> then <kbd>x</kbd></td>
+                        <td>Closes the current tab and all its panes.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Pane Management</h2>
+            <table class="cheatsheet-table">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Keybinding</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Split Vertically</td>
+                        <td><kbd>Ctrl</kbd>+<kbd>a</kbd> then <kbd>v</kbd></td>
+                        <td>Splits the current pane vertically.</td>
+                    </tr>
+                    <tr>
+                        <td>Split Horizontally</td>
+                        <td><kbd>Ctrl</kbd>+<kbd>a</kbd> then <kbd>h</kbd></td>
+                        <td>Splits the current pane horizontally.</td>
+                    </tr>
+                    <tr>
+                        <td>Navigate Panes</td>
+                        <td><kbd>Ctrl</kbd>+<kbd>a</kbd> then <kbd>h</kbd>/<kbd>j</kbd>/<kbd>k</kbd>/<kbd>l</kbd></td>
+                        <td>Moves focus to the pane in the given direction (Vim-style).</td>
+                    </tr>
+                    <tr>
+                        <td>Toggle Floating Pane</td>
+                        <td><kbd>Ctrl</kbd>+<kbd>a</kbd> then <kbd>f</kbd></td>
+                        <td>Toggles the current pane between tiled and floating mode.</td>
+                    </tr>
+                    <tr>
+                        <td>Close Current Pane</td>
+                        <td><kbd>Ctrl</kbd>+<kbd>a</kbd> then <kbd>q</kbd></td>
+                        <td>Closes the currently active pane.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="../community.html">Community</a>
+        </p>
+    </footer>
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle"),
+            body = document.body;
+        menuToggle.addEventListener("click", () => {
+            body.classList.toggle("nav-open")
+        }), document.querySelectorAll(".overlay-menu a").forEach(e => {
+            e.addEventListener("click", () => {
+                body.classList.remove("nav-open")
+            })
+        }), document.querySelectorAll(".copy-button").forEach(e => {
+            e.addEventListener("click", () => {
+                const o = e.parentElement.querySelector("pre");
+                o && navigator.clipboard.writeText(o.innerText).then(() => {
+                    e.innerText = "Copied!", setTimeout(() => {
+                        e.innerText = "Copy"
+                    }, 2e3)
+                }).catch(o => {
+                    console.error("Failed to copy text: ", o), e.innerText = "Error"
+                })
+            })
+        });
+    </script>
+</body>
+
+</html>

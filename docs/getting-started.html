@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting started: your first session - Vesper.sh</title>
+    <meta name="description" content="A beginner's tutorial for Vesper. Learn the core concepts of sessions, tabs, and panes, and walk through building your first multi-pane layout.">
+    <!-- Open Graph & X (Twitter) Social Sharing Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesper.sh/">
+    <meta property="og:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="og:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/">
+    <meta property="twitter:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="twitter:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+
+    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+    <link rel="manifest" href="../images/site.webmanifest" />
+
+    <!-- Schema.org for Rich Search Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://vesper.sh/",
+          "name": "Vesper.sh"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Vesper",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Linux, macOS",
+          "description": "Vesper is a modern, standalone terminal multiplexer designed as an intuitive alternative to tmux.",
+          "url": "https://vesper.sh/",
+          "codeRepository": "https://github.com/cosminadrianpopescu/azul",
+          "license": "https://opensource.org/licenses/MIT"
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="../index.html" class="logo-link">
+            <img src="../images/logo.svg" alt="Vesper.sh Logo">
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="index.html">Docs</a>
+            <a href="../features.html">Features</a>
+            <a href="../vs-tmux.html">Comparison</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Overlay Navigation Menu -->
+    <div class="overlay-menu">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Docs</a>
+        <a href="../features.html">Features</a>
+        <a href="../vs-tmux.html">Comparison</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Getting started: your first session</h1>
+            <p>Welcome to Vesper! This guide will walk you through the core concepts and help you build your first productive workspace in minutes.</p>
+        </header>
+
+        <section>
+            <h2>The Vesper model: sessions, tabs, and panes</h2>
+            <p>Understanding Vesper's hierarchy is key to mastering it:</p>
+            <dl class="definition-list">
+                <dt>Session</dt>
+                <dd>The top-level container that runs in the background. You can detach from a session and re-attach later.</dd>
+
+                <dt>Tab</dt>
+                <dd>A single workspace within a session. You can have multiple tabs for different contexts (e.g., one for your backend, one for your frontend).</dd>
+
+                <dt>Pane</dt>
+                <dd>A view within a tab that contains a shell. A tab can be split into multiple panes.</dd>
+            </dl>
+                </section>
+
+        <section>
+            <h2>The prefix key</h2>
+            <p>Vesper uses a prefix key for all commands to avoid conflicts with your shell or other programs. The default prefix is <kbd>Ctrl</kbd>+<kbd>a</kbd>. To run a command, you press the prefix, release it, and then press the command key.</p>
+        </section>
+
+        <section>
+            <h2>Building your first layout</h2>
+            <p>Let's create a simple 3-pane layout for a web development project.</p>
+            <ol>
+                <li><strong>Start Vesper:</strong> In your terminal, run <code>vesper</code>.</li>
+                <li><strong>Split vertically:</strong> Press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>v</kbd>. You now have two panes side-by-side.</li>
+                <li><strong>Split horizontally:</strong> Press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>l</kbd> to move to the right pane. Now press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>h</kbd>. You now have one large pane on the left and two smaller panes on the right.</li>
+                <li><strong>Run your commands:</strong> Navigate between the panes (<kbd>Ctrl</kbd>+<kbd>a</kbd> + `h/j/k/l`) and start your processes: your code editor in the large pane, your dev server in the top-right, and your test runner in the bottom-right.</li>
+            </ol>
+            <div class="placeholder">
+                <p><strong>Placeholder: "It's That Easy" GIF</strong><br>An animated GIF demonstrating these exact steps.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>The superpower: detaching and re-attaching</h2>
+            <p>Now that your workspace is running, you can safely detach from it. Press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>d</kbd>. You'll be returned to your original shell, but all your processes are still running in the background. To return to your session exactly as you left it, simply run:</p>
+            <div class="code-block">
+                <pre><code>vesper attach</code></pre>
+                <button class="copy-button">Copy</button>
+            </div>
+        </section>
+
+        <section class="text-center" style="margin-top: 60px;">
+            <h2>Next steps</h2>
+            <p>You've mastered the basics! Now you're ready to explore all of Vesper's commands or learn how to configure it to your liking.</p>
+            <a href="cheatsheet.html" class="cta-button">View the Cheatsheet</a>
+            <a href="configuration.html" class="cta-button cta-button--secondary">Read the Configuration Guide</a>
+                </section>
+
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="../community.html">Community</a></p>
+    </footer>
+    <script>
+        const menuToggle=document.querySelector(".menu-toggle"),body=document.body;menuToggle.addEventListener("click",()=>{body.classList.toggle("nav-open")}),document.querySelectorAll(".overlay-menu a").forEach(e=>{e.addEventListener("click",()=>{body.classList.remove("nav-open")})}),document.querySelectorAll(".copy-button").forEach(e=>{e.addEventListener("click",()=>{const o=e.parentElement.querySelector("pre");o&&navigator.clipboard.writeText(o.innerText).then(()=>{e.innerText="Copied!",setTimeout(()=>{e.innerText="Copy"},2e3)}).catch(o=>{console.error("Failed to copy text: ",o),e.innerText="Error"})})});
+    </script>
+</body>
+</html>

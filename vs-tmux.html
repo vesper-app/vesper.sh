@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesper vs. Tmux: an honest comparison - Vesper.sh</title>
+    <meta name="description" content="A detailed comparison of Vesper vs. Tmux, focusing on real-world frustrations like nested sessions, clipboard management, and session restore.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesper.sh/vs-tmux.html">
+    <meta property="og:title" content="Vesper vs. Tmux: a modern comparison - Vesper.sh">
+    <meta property="og:description" content="A detailed comparison of Vesper vs. Tmux, focusing on real-world frustrations like nested sessions, clipboard management, and session restore.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/vs-tmux.html">
+    <meta property="twitter:title" content="Vesper vs. Tmux: a modern comparison - Vesper.sh">
+    <meta property="twitter:description" content="A detailed comparison of Vesper vs. Tmux, focusing on real-world frustrations like nested sessions, clipboard management, and session restore.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="images/site.webmanifest" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="index.html" class="logo-link">
+            <img src="images/logo.svg" alt="Vesper.sh Logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="docs/index.html">Docs</a>
+            <a href="features.html">Features</a>
+            <a href="vs-tmux.html">Comparison</a>
+            <a href="blog.html">Blog</a>
+            <a href="community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+    
+    <!-- Mobile Overlay Navigation Menu -->
+    <div class="overlay-menu">
+        <a href="index.html">Home</a>
+        <a href="docs/index.html">Docs</a>
+        <a href="features.html">Features</a>
+        <a href="vs-tmux.html">Comparison</a>
+        <a href="blog.html">Blog</a>
+        <a href="community.html">Community</a>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Vesper vs. Tmux</h1>
+            <p>Tmux is a powerful classic. Vesper is the modern solution built to fix its most common frustrations.</p>
+        </header>
+
+        <section>
+            <h2>Nested sessions: sanity vs. the double prefix dance</h2>
+            <h3>Tmux: the clumsy workaround</h3>
+            <p>When you SSH from a local `tmux` session into a remote `tmux` session, you're forced into a clumsy workflow of pressing your prefix key twice to control the remote panes. It's confusing and inefficient.</p>
+            <h3>Vesper: the elegant solution</h3>
+            <p>Vesper's architecture intelligently handles nested sessions. By temporarily disabling the outer session's prefix, it allows you to control the remote multiplexer seamlessly. There are no prefix conflicts, just a smooth and frustration-free experience.</p>
+            <div class="placeholder">
+                <p><strong>Placeholder: Nested Session GIF</strong><br>A split-screen GIF. On the left ("Tmux"), it shows a user trying to create a new window, pressing `Ctrl-b` `c` and the local session splits. Then they press `Ctrl-b` `Ctrl-b` `c` to split the remote. On the right ("Vesper"), it shows the user simply pressing `Ctrl-a` `c` and the remote session splits instantly.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Clipboard: buffer juggling vs. direct access</h2>
+            <h3>Tmux: the multi-step copy</h3>
+            <p>By default, copying in Tmux moves text to an internal buffer. Getting that text to your actual system clipboard requires complex configuration (`.tmux.conf`) or external tools. It's a constant point of friction.</p>
+            <h3>Vesper: a clipboard that just works</h3>
+            <p>Vesper provides direct, out-of-the-box access to the system clipboard. Highlight text, copy it, and paste it anywhere. It works exactly as you'd expect a modern application to, on both Windows and Linux, with zero configuration.</p>
+        </section>
+        
+        <section>
+            <h2>Layout flexibility: tiling vs. tiling with floating panes</h2>
+            <h3>Tmux: strictly tiled</h3>
+            <p>Tmux is excellent at dividing your screen into a rigid grid of panes. This covers 90% of use cases, but for temporary tasks, you're forced to disrupt your layout by creating a new split.</p>
+            <h3>Vesper: break the grid when you need to</h3>
+            <p>Vesper supports traditional tiling but adds **floating panes**. This allows you to pop up a temporary, overlayed window for a quick task—like looking up a man page or monitoring a process—without destroying your carefully arranged workspace.</p>
+            <div class="placeholder">
+                <p><strong>Placeholder: Layout Comparison PNG</strong><br>A side-by-side static image. The left side ("Tmux") shows a user having to create a small, awkward split just to view a man page. The right side ("Vesper") shows the same user with a clean layout and the man page open in a neat, temporary floating window.</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>The foundation: legacy vs. modern core</h2>
+            <h3>Tmux's stable but legacy foundation</h3>
+            <p>Tmux's architecture is famously stable, but it was designed for a different era of terminal technology. This can sometimes lead to visual quirks with modern TUI applications.</p>
+            <h3>Vesper's stable and modern foundation</h3>
+            <p>By building on the Neovim core, Vesper inherits a modern, high-performance foundation designed to handle complex graphical and interactive loads. While not a specific "rendering feature," this architectural choice provides a level of stability and compatibility that feels right at home with today's CLI tools.</p>
+        </section>
+    
+        <section class="text-center" style="margin-top: 60px;">
+            <h2>Convinced?</h2>
+            <p>Stop fighting your tools. Install Vesper and feel the difference in your workflow today.</p>
+            <a href="docs/installation.html" class="cta-button">Install Vesper Now</a>
+        </section>
+    
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="community.html">Community</a></p>
+    </footer>
+
+    <script>
+        const menuToggle=document.querySelector(".menu-toggle"),body=document.body;menuToggle.addEventListener("click",()=>{body.classList.toggle("nav-open")}),document.querySelectorAll(".overlay-menu a").forEach(e=>{e.addEventListener("click",()=>{body.classList.remove("nav-open")})}),document.querySelectorAll(".copy-button").forEach(e=>{e.addEventListener("click",()=>{const o=e.parentElement.querySelector("pre");o&&navigator.clipboard.writeText(o.innerText).then(()=>{e.innerText="Copied!",setTimeout(()=>{e.innerText="Copy"},2e3)}).catch(o=>{console.error("Failed to copy text: ",o),e.innerText="Error"})})});
+    </script>
+</body>
+</html>

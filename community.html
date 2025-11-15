@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Vesper community - Vesper.sh</title>
+    <meta name="description" content="Get help, report bugs, suggest features, and learn how to contribute to the future of the modern terminal multiplexer.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesper.sh/community.html">
+    <meta property="og:title" content="Join the Vesper community - Vesper.sh">
+    <meta property="og:description" content="Get help, report bugs, suggest features, and learn how to contribute to the future of the modern terminal multiplexer.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/community.html">
+    <meta property="twitter:title" content="Join the Vesper community - Vesper.sh">
+    <meta property="twitter:description" content="Get help, report bugs, suggest features, and learn how to contribute to the future of the modern terminal multiplexer.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="images/site.webmanifest" />
+
+</head>
+<body>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="index.html" class="logo-link">
+            <img src="images/logo.svg" alt="Vesper.sh Logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="docs/index.html">Docs</a>
+            <a href="features.html">Features</a>
+            <a href="vs-tmux.html">Comparison</a>
+            <a href="blog.html">Blog</a>
+            <a href="community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+    
+    <!-- Mobile Overlay Navigation Menu -->
+    <div class="overlay-menu">
+        <a href="index.html">Home</a>
+        <a href="docs/index.html">Docs</a>
+        <a href="features.html">Features</a>
+        <a href="vs-tmux.html">Comparison</a>
+        <a href="blog.html">Blog</a>
+        <a href="community.html">Community</a>
+    </div>
+
+    <main class="container">
+        <header class="text-center">
+            <h1>Join the conversation</h1>
+            <p>Vesper is built for and by its users. Here’s how to get involved, get help, and help us build the future of the terminal.</p>
+        </header>
+
+        <section>
+            <h2>Our community home</h2>
+            <div class="community-card">
+                <h3>Discord Server: The main hub</h3>
+                <p>For real-time chat, live support, sharing your layouts, and getting to know other Vesper users, our Discord server is the place to be. This is the heart of our community.</p>
+                <a href="#" class="cta-button">Join our Discord Server</a> 
+            </div>
+        </section>
+
+        <section>
+            <h2>Discussions and announcements</h2>
+            <div class="community-card">
+                <h3>Reddit & Lemmy: Find us in the wild</h3>
+                <p>We post major announcements, demos, and "Show & Tell" threads in communities where developers hang out. Follow us in these spaces to see Vesper in action and join the broader conversation.</p>
+                <p>
+                    <a href="#">r/commandline</a> &bull; 
+                    <a href="#">r/rust</a> &bull; 
+                    <a href="#">r/neovim</a> &bull; 
+                    <a href="#">Lemmy c/commandline</a>
+                </p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Development and contributions</h2>
+            <div class="community-card">
+                <h3>GitHub: The source of truth</h3>
+                <p>For everything related to the Vesper codebase, GitHub is the place. Report bugs, request new features, and even contribute directly to the project.</p>
+                <a href="https://github.com/cosminadrianpopescu/azul/issues" class="cta-button" style="margin-right: 15px;">Report a Bug</a>
+                <a href="https://github.com/cosminadrianpopescu/azul/blob/main/CONTRIBUTING.md" class="cta-button">Contribute Code</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="community.html">Community</a></p>
+    </footer>
+
+    <script>
+        const menuToggle=document.querySelector(".menu-toggle"),body=document.body;menuToggle.addEventListener("click",()=>{body.classList.toggle("nav-open")}),document.querySelectorAll(".overlay-menu a").forEach(e=>{e.addEventListener("click",()=>{body.classList.remove("nav-open")})}),document.querySelectorAll(".copy-button").forEach(e=>{e.addEventListener("click",()=>{const o=e.parentElement.querySelector("pre");o&&navigator.clipboard.writeText(o.innerText).then(()=>{e.innerText="Copied!",setTimeout(()=>{e.innerText="Copy"},2e3)}).catch(o=>{console.error("Failed to copy text: ",o),e.innerText="Error"})})});
+    </script>
+</body>
+</html>

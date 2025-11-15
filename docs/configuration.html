@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration guide - Vesper.sh</title>
+    <meta name="description" content="Learn how to configure Vesper using the simple config.ini for basic settings and the powerful init.lua for advanced scripting and automation.">
+
+    <!-- Open Graph & X (Twitter) Social Sharing Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesper.sh/">
+    <meta property="og:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="og:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/">
+    <meta property="twitter:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="twitter:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+
+    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+    <link rel="manifest" href="../images/site.webmanifest" />
+
+    <!-- Schema.org for Rich Search Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://vesper.sh/",
+          "name": "Vesper.sh"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Vesper",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Linux, macOS",
+          "description": "Vesper is a modern, standalone terminal multiplexer designed as an intuitive alternative to tmux.",
+          "url": "https://vesper.sh/",
+          "codeRepository": "https://github.com/cosminadrianpopescu/azul",
+          "license": "https://opensource.org/licenses/MIT"
+        }
+      ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="../index.html" class="logo-link">
+            <img src="../images/logo.svg" alt="Vesper.sh Logo">
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="index.html">Docs</a>
+            <a href="../features.html">Features</a>
+            <a href="../vs-tmux.html">Comparison</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Overlay Navigation Menu -->
+    <div class="overlay-menu">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Docs</a>
+        <a href="../features.html">Features</a>
+        <a href="../vs-tmux.html">Comparison</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Configuration guide</h1>
+            <p>Vesper offers a powerful hybrid configuration system. You can start with simple tweaks in an INI file and graduate to full programmatic control with Lua.</p>
+        </header>
+
+        <section>
+            <h2>The configuration directory</h2>
+            <p>All Vesper configuration files live in <code>~/.config/vesper/</code>. Vesper loads configurations in a specific order: internal defaults are loaded first, then `config.ini`, and finally `init.lua`, with later files overriding earlier ones.</p>
+        </section>
+
+        <section>
+            <h2>The simple way: `config.ini`</h2>
+            <p>For most common settings, the INI file is the easiest way to customize Vesper. Just create a file at <code>~/.config/vesper/config.ini</code> and add the settings you want to change.</p>
+            <p>For example, to change the prefix key from `Ctrl-a` to `Ctrl-b`:</p>
+            <div class="code-block">
+                <pre><code>[general]
+prefix = C-b</code></pre>
+                <button class="copy-button">Copy</button>
+            </div>
+        </section>
+        
+        <section>
+            <h2>The powerful way: `init.lua`</h2>
+            <p>For complete control, you can use a Lua script at <code>~/.config/vesper/init.lua</code>. This file gives you access to the full Vesper API, allowing you to create custom commands, automate layouts, and much more.</p>
+            <p>For example, to create a new keybinding that opens a floating pane and runs `htop`:</p>
+            <div class="code-block">
+                <pre><code>-- This is a simplified example
+        vesper.keymap.register("n", "<C-a>t", function()
+            local pane = vesper.panes.create({ floating = true })
+            vesper.panes.send_keys(pane.id, "htop\n")
+        end)</code></pre>
+                <button class="copy-button">Copy</button>
+            </div>
+            <p>To see all available functions and modules, dive into the complete API reference.</p>
+            <a href="api-reference.html" class="cta-button">View the Full API Reference</a>
+        </section>
+        
+        <section>
+            <h2>Automating environments with `env.lua`</h2>
+            <p>Vesper also supports a special script at <code>~/.config/vesper/env.lua</code> that runs once at startup. This allows you to programmatically define a set of environment variables that will be applied to every new pane.</p>
+            <p>This is the perfect way to securely manage API keys and other secrets. We've written a detailed guide on this powerful feature.</p>
+            <a href="../blog/stop-leaking-secrets-env-lua.html" class="cta-button">Read the Secure Environments Guide</a>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="../community.html">Community</a></p>
+    </footer>
+    <script>
+        const menuToggle=document.querySelector(".menu-toggle"),body=document.body;menuToggle.addEventListener("click",()=>{body.classList.toggle("nav-open")}),document.querySelectorAll(".overlay-menu a").forEach(e=>{e.addEventListener("click",()=>{body.classList.remove("nav-open")})}),document.querySelectorAll(".copy-button").forEach(e=>{e.addEventListener("click",()=>{const o=e.parentElement.querySelector("pre");o&&navigator.clipboard.writeText(o.innerText).then(()=>{e.innerText="Copied!",setTimeout(()=>{e.innerText="Copy"},2e3)}).catch(o=>{console.error("Failed to copy text: ",o),e.innerText="Error"})})});
+    </script>
+</body>
+</html>

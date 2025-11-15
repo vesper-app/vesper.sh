@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesper.sh: Stop fighting your terminal multiplexer</title>
+    <meta name="description" content="Tired of .tmux.conf hell? Vesper is a modern terminal multiplexer that works out of the box. You get persistent sessions, floating panes, and a clipboard that just works.">
+    <!-- Open Graph & X (Twitter) Social Sharing Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesper.sh/">
+    <meta property="og:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="og:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/">
+    <meta property="twitter:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="twitter:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="images/site.webmanifest" />
+
+    <!-- Schema.org for Rich Search Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://vesper.sh/",
+          "name": "Vesper.sh"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Vesper",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Linux, macOS",
+          "description": "Vesper is a modern, standalone terminal multiplexer designed as an intuitive alternative to tmux.",
+          "url": "https://vesper.sh/",
+          "codeRepository": "https://github.com/cosminadrianpopescu/azul",
+          "license": "https://opensource.org/licenses/MIT"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="index.html" class="logo-link">
+            <img src="images/logo.svg" alt="Vesper.sh Logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="docs/index.html">Docs</a>
+            <a href="features.html">Features</a>
+            <a href="vs-tmux.html">Comparison</a>
+            <a href="blog.html">Blog</a>
+            <a href="community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+    
+    <!-- Mobile Overlay Navigation Menu -->
+    <div class="overlay-menu">
+        <a href="index.html">Home</a>
+        <a href="docs/index.html">Docs</a>
+        <a href="features.html">Features</a>
+        <a href="vs-tmux.html">Comparison</a>
+        <a href="blog.html">Blog</a>
+        <a href="community.html">Community</a>
+    </div>
+
+    <!-- Main Page Content -->
+    <main class="container text-center">
+        <header>
+            <h1>Stop fighting your terminal. Start working.</h1>
+            <p style="font-size: 1.1em; color: #aaaaaa; max-width: 600px; margin: 20px auto 40px auto;">
+                Tired of <code>.tmux.conf</code> hell? Vesper is a modern terminal multiplexer that works out of the box. You get persistent sessions, floating panes, and a clipboard that just works.
+            </p>
+        </header>
+        
+        <div class="placeholder">
+            <p><strong>Placeholder: Hero Screenshot</strong><br>A clean, professional PNG of a 3-pane Vesper layout. (e.g., `hero-screenshot.png`)</p>
+        </div>
+
+        <a href="docs/install.html" class="cta-button">Get started in 60 seconds</a>
+    </main>
+    
+    <section class="container text-center">
+        <div style="margin-top: 60px;">
+            <h2>Built on a modern foundation</h2>
+            <p style="max-width: 700px; margin: 10px auto 40px auto;">By using the high-performance core of Neovim, Vesper is built on an architecture designed for stability and compatibility with the complex TUI tools developers use every day.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p>
+            <a href="https://github.com/cosminadrianpopescu/azul">GitHub</a>
+            <a href="community.html">Community</a>
+        </p>
+    </footer>
+
+    <!-- 
+      Embedded JavaScript. 
+      For a site of this scale, this is more performant than a separate file 
+      as it saves an HTTP request.
+    -->
+    <script>
+        // Hamburger menu functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const body = document.body;
+
+        menuToggle.addEventListener('click', () => {
+            body.classList.toggle('nav-open');
+        });
+
+        // Close the menu when a link is clicked inside the overlay
+        document.querySelectorAll('.overlay-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                body.classList.remove('nav-open');
+            });
+        });
+
+        // Add copy-to-clipboard functionality to all copy buttons
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const pre = button.parentElement.querySelector('pre');
+                if (pre) {
+                    const code = pre.innerText;
+                    navigator.clipboard.writeText(code).then(() => {
+                        button.innerText = 'Copied!';
+                        setTimeout(() => {
+                            button.innerText = 'Copy';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                        button.innerText = 'Error';
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

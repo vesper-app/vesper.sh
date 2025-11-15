@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Vesper.sh</title>
+    <meta name="description"
+        content="Tutorials, deep dives, and announcements from the Vesper team. Learn about terminal productivity and modern development workflows.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesper.sh/blog.html">
+    <meta property="og:title" content="Blog - Vesper.sh">
+    <meta property="og:description"
+        content="Tutorials, deep dives, and announcements from the Vesper team. Learn about terminal productivity and modern development workflows.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/blog.html">
+    <meta property="twitter:title" content="Blog - Vesper.sh">
+    <meta property="twitter:description"
+        content="Tutorials, deep dives, and announcements from the Vesper team. Learn about terminal productivity and modern development workflows.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="images/site.webmanifest" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="index.html" class="logo-link">
+            <img src="images/logo.svg" alt="Vesper.sh Logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="docs/index.html">Docs</a>
+            <a href="features.html">Features</a>
+            <a href="vs-tmux.html">Comparison</a>
+            <a href="blog.html">Blog</a>
+            <a href="community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+    
+    <!-- Mobile Overlay Navigation Menu -->
+    <div class="overlay-menu">
+        <a href="index.html">Home</a>
+        <a href="docs/index.html">Docs</a>
+        <a href="features.html">Features</a>
+        <a href="vs-tmux.html">Comparison</a>
+        <a href="blog.html">Blog</a>
+        <a href="community.html">Community</a>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>The Vesper blog</h1>
+            <p>Tutorials, deep dives, and announcements from the Vesper team. This is the official source for all things
+                Vesper.</p>
+        </header>
+
+        <section class="blog-posts">
+            <article>
+                <h2><a href="blog/why-we-built-vesper.html">Hello, Vesper: why we built a better terminal
+                        multiplexer</a></h2>
+                <p class="post-meta">Published on November 15, 2025</p>
+                <p>For years, developers have faced a frustrating choice: either wrestle with the arcane configuration
+                    of old-school terminal multiplexers or lose your entire workspace when an SSH connection drops. We
+                    knew there had to be a better way... <a href="blog/why-we-built-vesper.html">Read more &rarr;</a>
+                </p>
+            </article>
+
+            <article>
+                <h2><a href="blog/stop-leaking-secrets-env-lua.html">Stop leaking secrets: a guide to secure environment
+                        management with Vesper's `env.lua`</a></h2>
+                <p class="post-meta">Published on November 22, 2025</p>
+                <p>A practical guide on how to use Vesper's env.lua to securely load API keys and other secrets into
+                    your shell environment, without ever exposing them in your shell history or dotfiles... <a
+                        href="blog/stop-leaking-secrets-env-lua.html">Read more &rarr;</a></p>
+            </article>
+
+            <article>
+                <h2><a href="blog/vesper-vs-tmux-comparison.html">Vesper vs. Tmux: a no-nonsense comparison</a></h2>
+                <p class="post-meta">Published on November 29, 2025</p>
+                <p>Tmux is a powerful tool, but it belongs to a different era. We're breaking down the key differences
+                    in nested sessions, configuration, and usability that make Vesper the superior choice for a modern
+                    workflow... <a href="blog/vesper-vs-tmux-comparison.html">Read more &rarr;</a></p>
+            </article>
+
+            <article>
+                <h2><a href="blog/ultimate-rust-environment-vesper.html">Building the ultimate Rust environment with
+                        Vesper</a></h2>
+                <p class="post-meta">Published on December 6, 2025</p>
+                <p>A fast feedback loop is critical for Rust development. Learn how to build a perfect, persistent,
+                    multi-pane Vesper layout to manage your code, compiler, tests, and shell in one clean workspace...
+                    <a href="blog/ultimate-rust-environment-vesper.html">Read more &rarr;</a></p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="community.html">Community</a></p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle"),
+            body = document.body;
+        menuToggle.addEventListener("click", () => {
+            body.classList.toggle("nav-open")
+        }), document.querySelectorAll(".overlay-menu a").forEach(e => {
+            e.addEventListener("click", () => {
+                body.classList.remove("nav-open")
+            })
+        }), document.querySelectorAll(".copy-button").forEach(e => {
+            e.addEventListener("click", () => {
+                const o = e.parentElement.querySelector("pre");
+                o && navigator.clipboard.writeText(o.innerText).then(() => {
+                    e.innerText = "Copied!", setTimeout(() => {
+                        e.innerText = "Copy"
+                    }, 2e3)
+                }).catch(o => {
+                    console.error("Failed to copy text: ", o), e.innerText = "Error"
+                })
+            })
+        });
+    </script>
+</body>
+
+</html>

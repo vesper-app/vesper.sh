@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation guide - Vesper.sh</title>
+    <meta name="description" content="Install Vesper with a single command on macOS and Linux using Homebrew or the AUR. A guide for building from source is also available.">
+    <!-- Open Graph & X (Twitter) Social Sharing Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesper.sh/">
+    <meta property="og:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="og:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/">
+    <meta property="twitter:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="twitter:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+
+    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+    <link rel="manifest" href="../images/site.webmanifest" />
+
+    <!-- Schema.org for Rich Search Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://vesper.sh/",
+          "name": "Vesper.sh"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Vesper",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Linux, macOS",
+          "description": "Vesper is a modern, standalone terminal multiplexer designed as an intuitive alternative to tmux.",
+          "url": "https://vesper.sh/",
+          "codeRepository": "https://github.com/cosminadrianpopescu/azul",
+          "license": "https://opensource.org/licenses/MIT"
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="../index.html" class="logo-link">
+            <img src="../images/logo.svg" alt="Vesper.sh Logo">
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="index.html">Docs</a>
+            <a href="../features.html">Features</a>
+            <a href="../vs-tmux.html">Comparison</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Overlay Navigation Menu -->
+    <div class="overlay-menu">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Docs</a>
+        <a href="../features.html">Features</a>
+        <a href="../vs-tmux.html">Comparison</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+    </div>
+
+    <!-- Main Page Content -->  
+    <main class="container">
+        <header>
+            <h1>Installation</h1>
+            <p>Install Vesper using your favorite package manager or directly from source. The only runtime prerequisite is <code>Neovim (v0.8+)</code>.</p>
+        </header>
+
+        <section>
+            <h2>Recommended methods</h2>
+            <p>These are the fastest and easiest ways to get Vesper.</p>
+
+            <h3>macOS & Linux (Homebrew)</h3>
+            <p>First, tap into the official Vesper repository, then install:</p>
+            <div class="code-block">
+                <pre><code># 1. Add the Vesper tap
+brew tap cosminadrianpopescu/vesper
+
+# 2. Install Vesper
+brew install vesper</code></pre>
+                <button class="copy-button">Copy</button>
+            </div>
+
+            <h3>Arch Linux (AUR)</h3>
+            <p>Use your preferred AUR helper (e.g., <code>yay</code> or <code>paru</code>):</p>
+            <div class="code-block">
+                <pre><code>yay -S vesper-git</code></pre>
+                <button class="copy-button">Copy</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Install from source (fallback method)</h2>
+            <p>If your system isn't supported above, or if you are a developer, you can build Vesper directly from source. You will first need to install the necessary build tools and libraries.</p>
+            
+            <h3>1. Install prerequisites</h3>
+            <p>On Debian-based systems (like Ubuntu), you can install all dependencies with:</p>
+            <div class="code-block">
+                <pre><code>sudo apt update && sudo apt install build-essential libncursesw-dev libx11-dev libxft-dev libxinerama-dev</code></pre>
+                <button class="copy-button">Copy</button>
+            </div>
+            
+            <h3>2. Build and install Vesper</h3>
+            <p>Once the prerequisites are installed, clone the repository and run the make commands:</p>
+            <div class="code-block">
+                <pre><code># 1. Clone the repository
+git clone https://github.com/cosminadrianpopescu/azul.git
+cd azul
+
+# 2. Build the project
+make
+
+# 3. Install the binary system-wide
+sudo make install</code></pre>
+                <button class="copy-button">Copy</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Run the quickstart</h2>
+            <p>Once installed, launch your first session. Vesper uses a <strong>prefix key</strong> for all commands. First, you press <kbd>Ctrl</kbd>+<kbd>a</kbd>, release it, and then press the command key.</p>
+            
+            <div class="placeholder">
+                <p><strong>Placeholder: "It's That Easy" GIF</strong><br>An updated GIF showing the `Ctrl-a` prefix appearing, followed by `v` to split, `h` to split, and `l` or `j` to navigate.</p>
+            </div>
+            
+            <ul>
+                <li><strong>Start a session:</strong> In your shell, run <code>vesper</code></li>
+                <li><strong>Split pane vertically:</strong> Press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>v</kbd></li>
+                <li><strong>Split pane horizontally:</strong> Press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>h</kbd></li>
+                <li><strong>Navigate between panes:</strong> Press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then use Vim keys (<kbd>h</kbd>, <kbd>j</kbd>, <kbd>k</kbd>, <kbd>l</kbd>)</li>
+                <li><strong>Detach the session:</strong> Press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>d</kbd></li>
+                <li><strong>Re-attach the session:</strong> In your shell, run <code>vesper attach</code></li>
+            </ul>
+        </section>
+    
+        <section class="text-center" style="margin-top: 60px;">
+            <h2>Installation complete!</h2>
+            <p>You're ready to go. Let's walk through the core concepts and build your first productive workspace.</p>
+            <a href="getting-started.html" class="cta-button">Start the "First Session" Tutorial</a>
+        </section>
+    
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p>
+            <a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | 
+            <a href="../community.html">Community</a>
+        </p>
+    </footer>
+
+    <!-- Embedded JavaScript -->
+    <script>
+        const menuToggle=document.querySelector(".menu-toggle"),body=document.body;menuToggle.addEventListener("click",()=>{body.classList.toggle("nav-open")}),document.querySelectorAll(".overlay-menu a").forEach(link=>{link.addEventListener("click",()=>{body.classList.remove("nav-open")})}),document.querySelectorAll(".copy-button").forEach(button=>{button.addEventListener("click",()=>{const pre=button.parentElement.querySelector("pre");pre&&navigator.clipboard.writeText(pre.innerText).then(()=>{button.innerText="Copied!",setTimeout(()=>{button.innerText="Copy"},2e3)}).catch(err=>{console.error("Failed to copy text: ",err),button.innerText="Error"})})});
+    </script>
+</body>
+</html>

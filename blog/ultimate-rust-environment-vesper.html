@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Building the ultimate Rust environment with Vesper - Vesper.sh</title>
+    <meta name="description" content="A practical guide to creating a fast, persistent, and efficient Rust development environment using a multi-pane Vesper layout to manage code, tests, and compilation.">
+    <meta property="og:url" content="https://vesper.sh/blog/ultimate-rust-environment-vesper.html">
+    <meta property="og:title" content="Building the ultimate Rust environment with Vesper">
+    <meta property="og:description" content="A practical guide to creating a fast, persistent, and efficient Rust development environment using a multi-pane Vesper layout.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/blog.html">
+    <meta property="twitter:title" content="Blog - Vesper.sh">
+    <meta property="twitter:description" content="Tutorials, deep dives, and announcements from the Vesper team. Learn about terminal productivity and modern development workflows.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="../index.html" class="logo-link"><img src="../images/logo.svg" alt="Vesper.sh Logo"></a>
+        <div class="nav-links">
+            <a href="../install.html">Install</a>
+            <a href="../features.html">Features</a>
+            <a href="../vs-tmux.html">Comparison</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    </nav>
+    <div class="overlay-menu">
+        <a href="../install.html">Install</a>
+        <a href="../features.html">Features</a>
+        <a href="../vs-tmux.html">Comparison</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+    </div>
+
+    <main class="container">
+        <article>
+            <header>
+                <h1>Building the ultimate Rust environment with Vesper</h1>
+                <p class="post-meta">Posted on November 29, 2025 by The Vesper Team</p>
+            </header>
+            
+            <p>A fast feedback loop is everything in Rust. The cycle of writing code, compiling, and running tests needs to be as seamless as possible. In this guide, we'll walk through setting up a perfect, persistent, multi-pane Vesper layout to create an ultimate Rust development workspace.</p>
+
+            <h2>The goal: a four-pane command center</h2>
+            <p>Our target layout will give us a dedicated space for every part of our workflow, giving us instant feedback at a glance:</p>
+            <ul>
+                <li><strong>Main Pane (Left):</strong> Our code editor (Neovim).</li>
+                <li><strong>Compiler Pane (Top-Right):</strong> A dedicated space for `cargo watch` to automatically check our code on every save.</li>
+                <li><strong>Test Pane (Middle-Right):</strong> A second `cargo watch` instance specifically for running our unit tests.</li>
+                <li><strong>Shell Pane (Bottom-Right):</strong> A clean shell for Git commands and running the final binary.</li>
+            </ul>
+            <div class="placeholder">
+                <p><strong>Placeholder: "Rust Command Center" Screenshot</strong><br>A clean screenshot showing the described 4-pane Rust development layout in action.</p>
+            </div>
+            
+            <h2>Step 1: start a named session</h2>
+            <p>First, let's create a dedicated session for our project so we can easily detach and have the entire environment waiting for us later.</p>
+            <div class="code-block">
+                <pre><code>vesper new -s my-rust-project</code></pre>
+                <button class="copy-button">Copy</button>
+            </div>
+
+            <h2>Step 2: build the layout</h2>
+            <p>From the single starting pane, perform the following splits. Remember that all commands start with the <strong><kbd>Ctrl</kbd>+<kbd>a</kbd></strong> prefix, and navigation uses Vim keys.</p>
+            <ol>
+                <li>Press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>v</kbd> to create our main vertical split.</li>
+                <li>Press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>l</kbd> (for 'right') to navigate to the new right-hand pane.</li>
+                <li>Press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>h</kbd> to create a horizontal split.</li>
+                <li>Press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>j</kbd> (for 'down') to navigate to the new bottom-right pane and press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>h</kbd> one more time.</li>
+            </ol>
+            <p>You now have your four-pane layout. Use your mouse to drag the borders to the exact size you want.</p>
+            
+            <h2>Step 3: run the processes</h2>
+            <p>Now, navigate to each pane (using <kbd>Ctrl</kbd>+<kbd>a</kbd> followed by <kbd>h</kbd>/<kbd>j</kbd>/<kbd>k</kbd>/<kbd>l</kbd>) and start the correct process:</p>
+            <ul>
+                <li>In the main left pane: <code>nvim src/main.rs</code></li>
+                <li>In the top-right pane: <code>cargo watch -x check</code></li>
+                <li>In the middle-right pane: <code>cargo watch -x test</code></li>
+                <li>The bottom-right pane is your command shell, ready for `git` or `cargo run`.</li>
+            </ul>
+
+            <h2>Pro-tip: use a floating pane for docs</h2>
+            <p>Need to quickly look up a crate? Press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>f</kbd> to toggle a floating pane. You can run your documentation viewer inside it without disrupting your main layout. When you're done, just close the pane.</p>
+
+            <h2>Your persistent workflow</h2>
+            <p>You now have a complete Rust command center. The best part? You can press <kbd>Ctrl</kbd>+<kbd>a</kbd>, then <kbd>d</kbd> to detach, close your terminal, and come back hours later. Running <code>vesper attach -s my-rust-project</code> will restore your entire workspace exactly as you left it.</p>
+        </article>
+
+        <p style="text-align: center; margin-top: 40px;">
+            <strong>Ready to stop fighting your terminal?</strong><br>
+            Install Vesper and experience a more modern, intuitive workflow.
+        </p>
+        <p style="text-align: center;">
+            <a href="../docs/install.html" class="cta-button">Get Vesper Now</a>
+        </p>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="../community.html">Community</a></p>
+    </footer>
+
+    <script>
+        const menuToggle=document.querySelector(".menu-toggle"),body=document.body;menuToggle.addEventListener("click",()=>{body.classList.toggle("nav-open")}),document.querySelectorAll(".overlay-menu a").forEach(e=>{e.addEventListener("click",()=>{body.classList.remove("nav-open")})}),document.querySelectorAll(".copy-button").forEach(e=>{e.addEventListener("click",()=>{const o=e.parentElement.querySelector("pre");o&&navigator.clipboard.writeText(o.innerText).then(()=>{e.innerText="Copied!",setTimeout(()=>{e.innerText="Copy"},2e3)}).catch(o=>{console.error("Failed to copy text: ",o),e.innerText="Error"})})});
+    </script>
+</body>
+</html>

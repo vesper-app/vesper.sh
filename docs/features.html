@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed feature list - Vesper.sh</title>
+    <meta name="description" content="A comprehensive, detailed list of all features available in Vesper, including session management, layout controls, configuration, and scripting.">
+
+    <!-- Open Graph & X (Twitter) Social Sharing Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesper.sh/">
+    <meta property="og:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="og:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/">
+    <meta property="twitter:title" content="Vesper.sh: Stop fighting your terminal multiplexer">
+    <meta property="twitter:description" content="Tired of .tmux.conf hell? Vesper is a modern, standalone terminal multiplexer with persistent sessions and intuitive splits that works out of the box.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+
+    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+    <link rel="manifest" href="../images/site.webmanifest" />
+
+    <!-- Schema.org for Rich Search Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://vesper.sh/",
+          "name": "Vesper.sh"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Vesper",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Linux, macOS",
+          "description": "Vesper is a modern, standalone terminal multiplexer designed as an intuitive alternative to tmux.",
+          "url": "https://vesper.sh/",
+          "codeRepository": "https://github.com/cosminadrianpopescu/azul",
+          "license": "https://opensource.org/licenses/MIT"
+        }
+      ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="../index.html" class="logo-link">
+            <img src="../images/logo.svg" alt="Vesper.sh Logo">
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="index.html">Docs</a>
+            <a href="../features.html">Features</a>
+            <a href="../vs-tmux.html">Comparison</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Overlay Navigation Menu -->
+    <div class="overlay-menu">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Docs</a>
+        <a href="../features.html">Features</a>
+        <a href="../vs-tmux.html">Comparison</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Features reference</h1>
+            <p>A comprehensive list of Vesper's core features and capabilities.</p>
+        </header>
+
+        <section class="feature-category">
+            <h2>Session & Remote Management</h2>
+            <ul class="feature-list">
+                <li><strong>Automatic Session Restore:</strong> Sessions are automatically saved on detach or disconnect and are restored exactly on re-attach. This is enabled by default.</li>
+                <li><strong>Native Remote Tabs:</strong> Create tabs that are natively connected to a remote machine, eliminating nested sessions and prefix conflicts.</li>
+                <li><strong>Unified Scroll Control:</strong> Use your native mouse/trackpad or dedicated keybindings to scroll in any pane (local or remote) without ever entering a special "copy mode."</li>
+                <li><strong>Named Sessions:</strong> Create and attach to sessions by name for easy project management.</li>
+            </ul>
+        </section>
+
+        <section class="feature-category">
+            <h2>Layout & Pane Management</h2>
+            <ul class="feature-list">
+                <li><strong>Tiled Panes:</strong> Split your view into multiple, non-overlapping panes, both horizontally and vertically.</li>
+                <li><strong>Toggleable Floating Panes:</strong> Temporarily "lift" any tiled pane into a floating overlay that can be moved and resized freely, then snap it back into the grid.</li>
+                <li><strong>Tab Support:</strong> Organize multiple workspaces within a single session using tabs.</li>
+                <li><strong>Direct Mouse Interaction:</strong> Use your mouse to select panes and drag borders to resize them.</li>
+            </ul>
+        </section>
+        
+        <section class="feature-category">
+            <h2>Configuration & Scripting</h2>
+            <ul class="feature-list">
+                <li><strong>Hybrid INI/Lua Configuration:</strong> Use a simple `.ini` file for easy setup and a powerful `init.lua` file for deep, programmatic control.</li>
+                <li><strong>Automated Environment Scripting:</strong> Vesper runs a central `env.lua` script at startup to securely and automatically apply environment variables to every new pane.</li>
+                <li><strong>Lua Plugin API:</strong> Vesper exposes a rich API, allowing you to write plugins in Lua to create custom commands, automate workflows, and modify UI elements.</li>
+                <li><strong>Customizable Keybindings:</strong> Remap any command to your preferred key sequence in your configuration.</li>
+            </ul>
+        </section>
+
+        <section class="feature-category">
+            <h2>User Experience & Workflow</h2>
+            <ul class="feature-list">
+                <li><strong>Direct System Clipboard Access:</strong> Copy and paste between Vesper and your desktop works out-of-the-box with no special configuration.</li>
+                <li><strong>Prefix-Based Workflow:</strong> All commands are namespaced under a configurable prefix key (default: <kbd>Ctrl</kbd>+<kbd>a</kbd>) for a predictable, conflict-free experience.</li>
+                <li><strong>First-Run Welcome Guide:</strong> A helpful, one-time message on first launch to teach the core keybindings.</li>
+            </ul>
+        </section>
+
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="../community.html">Community</a></p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle"),
+            body = document.body;
+        menuToggle.addEventListener("click", () => {
+            body.classList.toggle("nav-open")
+        }), document.querySelectorAll(".overlay-menu a").forEach(e => {
+            e.addEventListener("click", () => {
+                body.classList.remove("nav-open")
+            })
+        }), document.querySelectorAll(".copy-button").forEach(e => {
+            e.addEventListener("click", () => {
+                const o = e.parentElement.querySelector("pre");
+                o && navigator.clipboard.writeText(o.innerText).then(() => {
+                    e.innerText = "Copied!", setTimeout(() => {
+                        e.innerText = "Copy"
+                    }, 2e3)
+                }).catch(o => {
+                    console.error("Failed to copy text: ", o), e.innerText = "Error"
+                })
+            })
+        });
+    </script>
+</body>
+</html>

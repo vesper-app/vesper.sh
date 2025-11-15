@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello, Vesper: why we built a better terminal multiplexer - Vesper.sh</title>
+    <meta name="description" content="The story behind Vesper. Learn why the frustration of nested sessions and clunky workflows led us to build a modern terminal multiplexer from the ground up.">
+    <meta property="og:url" content="https://vesper.sh/blog/why-we-built-vesper.html">
+    <meta property="og:title" content="Hello, Vesper: why we built a better terminal multiplexer">
+    <meta property="og:description" content="The story behind Vesper. Learn why we decided to build a modern terminal multiplexer from the ground up to solve the frustrations of older tools.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/blog.html">
+    <meta property="twitter:title" content="Blog - Vesper.sh">
+    <meta property="twitter:description" content="Tutorials, deep dives, and announcements from the Vesper team. Learn about terminal productivity and modern development workflows.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="../index.html" class="logo-link"><img src="../images/logo.svg" alt="Vesper.sh Logo"></a>
+        <div class="nav-links">
+            <a href="../install.html">Install</a>
+            <a href="../features.html">Features</a>
+            <a href="../vs-tmux.html">Comparison</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    </nav>
+    <div class="overlay-menu">
+        <a href="../install.html">Install</a>
+        <a href="../features.html">Features</a>
+        <a href="../vs-tmux.html">Comparison</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+    </div>
+
+
+    <main class="container">
+        <article>
+            <header>
+                <h1>Hello, Vesper: why we built a better terminal multiplexer</h1>
+                <p class="post-meta">Posted on November 15, 2025 by The Vesper Team</p>
+            </header>
+            <p>Every power user who lives in the command line has felt it. That tiny moment of friction that, compounded hundreds of times a day, becomes a massive drain on focus. For us, the final straw wasn't just the clunky configuration or the endless plugins—it was the nested session.</p>
+            <p>Today, we're excited to introduce <strong>Vesper</strong>. To understand what it is, you first have to understand the frustration that built it.</p>
+            <h2>The problem: the 'double prefix dance'</h2>
+            <p>You're running a multiplexer locally. You `ssh` into a production box and attach to the `tmux` session running there. Suddenly, your muscle memory is your enemy. You press `Ctrl-a` `c` to create a new window, and it happens on your local machine. To send the command to the remote server, you have to perform the clumsy "double prefix dance." It breaks your flow and forces you to think about your tools instead of your task.</p>
+            <h2>Our core principles</h2>
+            <ul>
+                <li><strong>Solve the real, hard problems.</strong> Vesper's native remote tabs are an architectural solution to the nested session problem, not just a workaround.</li>
+                <li><strong>Your tools should be smart, not just passive.</strong> Vesper can automatically run scripts to configure your environment for you, every single time you open a new pane.</li>
+                <li><strong>Offer a truly flexible layout.</strong> We believe you should be able to break the grid when you need to. That's why Vesper allows you to toggle any pane into a floating overlay, and then snap it back into place.</li>
+            </ul>
+            <h2>This is just the beginning</h2>
+            <p>We're launching with a product we're proud of because it solves problems we've personally faced. But this is just the start. Vesper is open-source, and we want to build it with the community that needs it most. We invite you to install it, try it out, and tell us what you think.</p>
+        </article>
+
+        <p style="text-align: center; margin-top: 40px;">
+            <strong>Ready to stop fighting your terminal?</strong><br>
+            Install Vesper and experience a more modern, intuitive workflow.
+        </p>
+        <p style="text-align: center;">
+            <a href="../docs/install.html" class="cta-button">Get Vesper Now</a>
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="../community.html">Community</a></p>
+    </footer>
+    <script>
+        const menuToggle=document.querySelector(".menu-toggle"),body=document.body;menuToggle.addEventListener("click",()=>{body.classList.toggle("nav-open")}),document.querySelectorAll(".overlay-menu a").forEach(e=>{e.addEventListener("click",()=>{body.classList.remove("nav-open")})}),document.querySelectorAll(".copy-button").forEach(e=>{e.addEventListener("click",()=>{const o=e.parentElement.querySelector("pre");o&&navigator.clipboard.writeText(o.innerText).then(()=>{e.innerText="Copied!",setTimeout(()=>{e.innerText="Copy"},2e3)}).catch(o=>{console.error("Failed to copy text: ",o),e.innerText="Error"})})});
+    </script>
+</body>
+</html>

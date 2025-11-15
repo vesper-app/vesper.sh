@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vesper vs. Tmux: a no-nonsense comparison for 2025 - Vesper.sh</title>
+    <meta name="description" content="A detailed, honest comparison between Vesper and Tmux. We break down the key differences in nested sessions, clipboard management, and layout flexibility.">
+    <meta property="og:url" content="https://vesper.sh/blog/vesper-vs-tmux-comparison.html">
+    <meta property="og:title" content="Vesper vs. Tmux: a no-nonsense comparison">
+    <meta property="og:description" content="A detailed, honest comparison between Vesper and Tmux. We break down the key differences in configuration, rendering, mouse support, and overall user experience.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/blog.html">
+    <meta property="twitter:title" content="Blog - Vesper.sh">
+    <meta property="twitter:description" content="Tutorials, deep dives, and announcements from the Vesper team. Learn about terminal productivity and modern development workflows.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+   <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="../index.html" class="logo-link"><img src="../images/logo.svg" alt="Vesper.sh Logo"></a>
+        <div class="nav-links">
+            <a href="../install.html">Install</a>
+            <a href="../features.html">Features</a>
+            <a href="../vs-tmux.html">Comparison</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    </nav>
+    <div class="overlay-menu">
+        <a href="../install.html">Install</a>
+        <a href="../features.html">Features</a>
+        <a href="../vs-tmux.html">Comparison</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+    </div>
+
+    <main class="container">
+        <article>
+            <header>
+                <h1>Vesper vs. Tmux: a no-nonsense comparison</h1>
+                <p class="post-meta">Posted on November 22, 2025 by The Vesper Team</p>
+            </header>
+            
+            <p>Tmux is a giant. For years, it has been the default, battle-tested tool for session persistence. We respect its legacy. But giants can be slow to adapt, and the needs of a modern developer have changed. Vesper was built specifically to address the pain points that have become accepted as "normal" in the world of Tmux.</p>
+            
+            <h2>Nested sessions: sanity vs. the double prefix dance</h2>
+            <p>This is the most significant differentiator for anyone who manages remote servers. When you SSH from a local `tmux` session into a remote `tmux` session, you're forced into a clumsy workflow of pressing your prefix key twice to control the remote panes. Vesper's architecture intelligently handles this by temporarily disabling the outer prefix, allowing you to control the remote session seamlessly.</p>
+            <div class="placeholder">
+                <p><strong>Placeholder: Nested Session GIF</strong><br>A split-screen GIF. On the left ("Tmux"), it shows a user trying to create a new window, pressing `Ctrl-b` `c` and the local session splits. Then they press `Ctrl-b` `Ctrl-b` `c` to split the remote. On the right ("Vesper"), it shows the user simply pressing `Ctrl-a` `c` and the remote session splits instantly.</p>
+            </div>
+            
+            <h2>Clipboard: buffer juggling vs. direct access</h2>
+            <p>By default, copying in Tmux moves text to an internal buffer. Getting that text to your actual system clipboard requires complex configuration or external tools. Vesper, on the other hand, provides direct, out-of-the-box access to the system clipboard on both Windows and Linux. It works exactly as you'd expect a modern application to, with zero setup.</p>
+
+            <h2>Layout flexibility: tiling vs. tiling with floating panes</h2>
+            <p>A rigid grid is great for most workflows, but what about when you need to quickly look something up or monitor a log? In Tmux, you have to disrupt your layout by creating a new split. Vesper supports traditional tiling but adds **floating panes**, allowing you to pop up a temporary, overlayed window for a quick task without destroying your carefully arranged workspace.</p>
+            <div class="placeholder">
+                <p><strong>Placeholder: Layout Comparison PNG</strong><br>A side-by-side static image. The left side ("Tmux") shows a user having to create a small, awkward split just to view a man page. The right side ("Vesper") shows the same user with a clean layout and the man page open in a neat, temporary floating window.</p>
+            </div>
+
+            <h2>The verdict</h2>
+            <p>We believe your tools should get out of your way. If you value a clean, fast workflow and want to solve the real-world frustrations of modern terminal work, Vesper is the clear choice.</p>
+        </article>
+
+        <p style="text-align: center; margin-top: 40px;">
+            <strong>Ready to stop fighting your terminal?</strong><br>
+            Install Vesper and experience a more modern, intuitive workflow.
+        </p>
+        <p style="text-align: center;">
+            <a href="../docs/install.html" class="cta-button">Get Vesper Now</a>
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="../community.html">Community</a></p>
+    </footer>
+
+    <script>
+        const menuToggle=document.querySelector(".menu-toggle"),body=document.body;menuToggle.addEventListener("click",()=>{body.classList.toggle("nav-open")}),document.querySelectorAll(".overlay-menu a").forEach(e=>{e.addEventListener("click",()=>{body.classList.remove("nav-open")})}),document.querySelectorAll(".copy-button").forEach(e=>{e.addEventListener("click",()=>{const o=e.parentElement.querySelector("pre");o&&navigator.clipboard.writeText(o.innerText).then(()=>{e.innerText="Copied!",setTimeout(()=>{e.innerText="Copy"},2e3)}).catch(o=>{console.error("Failed to copy text: ",o),e.innerText="Error"})})});
+    </script>
+</body>
+</html>

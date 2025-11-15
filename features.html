@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core features - Vesper.sh</title>
+    <meta name="description"
+        content="Explore Vesper's core features: seamless nested sessions, automatic session restore, direct system clipboard access, and floating panes.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesper.sh/features.html">
+    <meta property="og:title" content="Core features - Vesper.sh">
+    <meta property="og:description"
+        content="Explore Vesper's core features: seamless nested sessions, automatic session restore, direct system clipboard access, and floating panes.">
+    <meta property="og:image" content="https://vesper.sh/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vesper.sh/features.html">
+    <meta property="twitter:title" content="Core features - Vesper.sh">
+    <meta property="twitter:description"
+        content="Explore Vesper's core features: seamless nested sessions, automatic session restore, direct system clipboard access, and floating panes.">
+    <meta property="twitter:image" content="https://vesper.sh/images/og-image.png">
+
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="images/site.webmanifest" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="index.html" class="logo-link">
+            <img src="images/logo.svg" alt="Vesper.sh Logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="docs/index.html">Docs</a>
+            <a href="features.html">Features</a>
+            <a href="vs-tmux.html">Comparison</a>
+            <a href="blog.html">Blog</a>
+            <a href="community.html">Community</a>
+        </div>
+        <button class="menu-toggle" aria-label="Open navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+    
+    <!-- Mobile Overlay Navigation Menu -->
+    <div class="overlay-menu">
+        <a href="index.html">Home</a>
+        <a href="docs/index.html">Docs</a>
+        <a href="features.html">Features</a>
+        <a href="vs-tmux.html">Comparison</a>
+        <a href="blog.html">Blog</a>
+        <a href="community.html">Community</a>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Why Vesper is different</h1>
+            <p>Vesper isn't just another multiplexer. It was built to solve the real-world frustrations that power users
+                face with older tools.</p>
+        </header>
+
+        <section>
+            <h2>Escape nested session hell</h2>
+            <p>Anyone who lives in the terminal has felt this pain: you <code>ssh</code> from your local multiplexer
+                into a remote server that's also running one. Suddenly, your muscle memory betrays you. You're forced to
+                press your prefix key twice just to control the remote session, completely breaking your workflow.
+                Vesper solves this architecturally, making local and remote sessions seamless. The 'double prefix dance'
+                is a thing of the past.</p>
+        </section>
+
+        <section>
+            <h2>A clipboard that just works</h2>
+            <p>Stop juggling buffers. In older multiplexers, copying text to your system's clipboard requires special
+                configuration or multi-step commands. Vesper provides direct, out-of-the-box access to the system
+                clipboard on both Windows and Linux. Highlight text, copy it, and paste it outside the terminal like you
+                would in any other modern application.</p>
+        </section>
+
+        <section>
+            <h2>Automatic session restore you can trust</h2>
+            <p>Vesper's session management is designed to be completely reliable. It's enabled by default and
+                automatically saves your workspace. If your connection drops or you need to restart, you can re-attach
+                with confidence, knowing your entire layout, including running processes, is exactly as you left it.</p>
+        </section>
+
+        <section>
+            <h2>Floating panes: break the grid</h2>
+            <p>Your workflow isn't always a perfect grid. Vesper supports floating panes, allowing you to temporarily
+                overlay a small window for tasks like looking up a command, managing a background process, or keeping an
+                eye on a log file without disrupting your main tiled layout. It's the ultimate in workspace flexibility.
+            </p>
+            <div class="placeholder">
+                <p><strong>Placeholder: Floating Panes GIF</strong><br>An animated GIF showing a tiled layout, then a
+                    key is pressed and a small, floating "htop" or "man page" window appears over the top. The user
+                    interacts with it, then closes it, returning to the undisturbed tiled layout.</p>
+            </div>
+        </section>
+
+        <section class="text-center" style="margin-top: 60px;">
+            <h2>Looking for the full spec sheet?</h2>
+            <p>For a comprehensive, detailed list of every feature, check out our full Features Reference.</p>
+            <a href="docs/features.html" class="cta-button">View Detailed Feature List</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vesper.sh. Open Source under the MIT License.</p>
+        <p><a href="https://github.com/cosminadrianpopescu/azul">GitHub</a> | <a href="community.html">Community</a></p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle"),
+            body = document.body;
+        menuToggle.addEventListener("click", () => {
+            body.classList.toggle("nav-open")
+        }), document.querySelectorAll(".overlay-menu a").forEach(e => {
+            e.addEventListener("click", () => {
+                body.classList.remove("nav-open")
+            })
+        }), document.querySelectorAll(".copy-button").forEach(e => {
+            e.addEventListener("click", () => {
+                const o = e.parentElement.querySelector("pre");
+                o && navigator.clipboard.writeText(o.innerText).then(() => {
+                    e.innerText = "Copied!", setTimeout(() => {
+                        e.innerText = "Copy"
+                    }, 2e3)
+                }).catch(o => {
+                    console.error("Failed to copy text: ", o), e.innerText = "Error"
+                })
+            })
+        });
+    </script>
+</body>
+
+</html>
